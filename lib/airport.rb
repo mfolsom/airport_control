@@ -1,5 +1,7 @@
 class Airport
+
 	attr_accessor :open_or_closed
+	
 	def initialize(open_or_closed)
 		@open_or_closed = :open_or_closed
 	end

@@ -11,6 +11,9 @@ end
 def flying?
 	self.state = :flying
 end
+def taking_off?
+	self.state = :taking_off
+end
 
 def landed?
 	self.state = :landed
