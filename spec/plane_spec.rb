@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe Plane do 
 	it "can be landing" do
 		plane = Plane.new(:landing)

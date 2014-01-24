@@ -17,10 +17,14 @@ describe Airport do
 
 	# context "taking off and landing" do
 	# 	it "a plane can land" do
+	# 		weather = double :weather, :sunny
+	# 		weather.sunny
+	# 		expect(airport).to be_open
+	# 		expect(plane).to be_landing
 	# 	end
 
-	# 	# it "a plane can take off" do
-	# 	# end
-	# end
+		# it "a plane can take off" do
+		# end
+	end
 
 end
