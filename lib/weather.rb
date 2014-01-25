@@ -9,11 +9,11 @@ module Weather
 	RANDOM_WEATHER = [:sunny, :rainy, :foggy, :drizzly, :stormy]
 
 	def good_conditions
-		@conditions = :sunny
+		@good_conditions = :sunny
 	end
 
 	def unpredicted_conditions
-		@conditions = :stormy
+		@bad_conditions = :stormy
 	end
 
 	def random_conditions
