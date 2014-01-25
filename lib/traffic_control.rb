@@ -4,6 +4,7 @@ require_relative "plane"
 
 class AirTrafficControl < Airport
 	include Weather
+	
 	attr_accessor :airport, :weather_conditions, :plane_status
 
 	def initialize(airport, weather_conditions, plane_status)

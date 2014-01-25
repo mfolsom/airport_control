@@ -3,9 +3,10 @@ require 'spec_helper'
 class Today; include Weather; end
 
 describe Weather do
+
 	it "should be somewhat predictable" do
-			today = Today.new
-			expect(today.good_conditions).to be(:sunny)
+		today = Today.new
+		expect(today.good_conditions).to be(:sunny)
 	end
 
 	it "should surprise everyone with unpredicted bad weather" do
@@ -18,4 +19,5 @@ describe Weather do
 		today.stub(:random_conditions).and_return(:foggy)
 		expect(today.random_conditions).to eq(:foggy)
 	end
+	
 end

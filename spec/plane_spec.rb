@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Plane do 
+
 	it "can be landing" do
 		plane = Plane.landing
 		expect(plane).to be_landing
@@ -20,6 +21,5 @@ describe Plane do
 		plane = Plane.landed
 		expect(plane).to be_landed
 	end
-
 
 end

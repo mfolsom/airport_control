@@ -1,4 +1,5 @@
 class Plane
+	
 attr_accessor :status
 
 	def initialize(status = nil)
@@ -35,6 +36,5 @@ attr_accessor :status
 	def self.landed
 		self.new(:landed)
 	end
-
 
 end

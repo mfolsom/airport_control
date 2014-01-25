@@ -6,7 +6,10 @@
 	end
 
 module Weather
-	RANDOM_WEATHER = [:sunny, :rainy, :foggy, :drizzly, :stormy]
+
+RANDOM_WEATHER = [
+	:sunny, :rainy, :foggy, :drizzly, :stormy,
+]
 
 	def good_conditions
 		@good_conditions = :sunny
