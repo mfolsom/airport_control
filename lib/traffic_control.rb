@@ -26,8 +26,11 @@ class AirTrafficControl < Airport
 	end
 
 	def close_runway_in_bad_weather(plane)
-		@plane = plane_status
 		no_clearance_for(plane) if @weather_conditions == :stormy
+	end
+
+	def open_runway_in_good_weather(plane)
+		landing_clearance_for(plane) if not @weather_conditions == :stormy
 	end
 
 end

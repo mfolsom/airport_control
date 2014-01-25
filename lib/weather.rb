@@ -8,7 +8,7 @@
 module Weather
 	RANDOM_WEATHER = [:sunny, :rainy, :foggy, :drizzly, :stormy]
 
-	def conditions
+	def good_conditions
 		@conditions = :sunny
 	end
 

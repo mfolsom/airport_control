@@ -8,7 +8,7 @@ describe Airport do
 				expect(airport).not_to have_planes
 		end
 
-		it 'has a plane once the plane landed' do
+		it 'has a plane once the plane has landed' do
 				weather = :sunny
 				airport = Airport.new(Plane.landed, weather)
 				airport.open_runway_for(Plane.landed)
@@ -19,14 +19,14 @@ describe Airport do
 				weather = :sunny
 				plane = Plane.landing
 				airport = Airport.new(Plane.landing, weather)
-				expect(airport.close_runway_for(plane)).to eq("Runway Closed!")
+				expect{ airport.close_runway_for(plane)}.to raise_error("Runway Closed!")
 		end
 
 		it 'planes cannot take off when the runway is closed' do
 				weather = :sunny
 				plane = Plane.taking_off
 				airport = Airport.new(Plane.taking_off, weather)
-				expect(airport.close_runway_for(plane)).to eq("Runway Closed!")
+				expect{ airport.close_runway_for(plane)}.to raise_error("Runway Closed!")
 		end
 
 		it "has weather conditions" do

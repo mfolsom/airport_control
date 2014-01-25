@@ -28,13 +28,31 @@ describe AirTrafficControl do
 		tower.weather_report(weather)
 	end
 
-	it "should close the airport when weather conditions are stormy" do
+	it "stops planes from landing and close the airport during stormy weather" do
 		today = Today.new
 		weather = today.unpredicted_conditions
 		airport = Airport.new(Plane.landing, weather)
 		tower = AirTrafficControl.new(airport, weather, Plane.landing)
 		plane = Plane.landing
-		expect(tower.close_runway_in_bad_weather(plane)).to eq("Runway Closed!")
+		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
+	end
+	
+	it "should also stop planes from taking off during stormy weather" do
+		today = Today.new
+		weather = today.unpredicted_conditions
+		airport = Airport.new(Plane.taking_off, weather)
+		tower = AirTrafficControl.new(airport, weather, Plane.taking_off)
+		plane = Plane.taking_off
+		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
+	end
+
+	it "clears the runway for landing in good weather" do
+		today = Today.new
+		weather = today.good_conditions
+		plane = Plane.landing
+		airport = Airport.new(plane, weather)
+		tower = AirTrafficControl.new(airport, weather, plane )
+		expect(tower.open_runway_in_good_weather(plane)).to eq("Runway Clear!")
 	end
 
 end

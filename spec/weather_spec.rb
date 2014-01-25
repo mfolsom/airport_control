@@ -5,7 +5,7 @@ class Today; include Weather; end
 describe Weather do
 	it "should be somewhat predictable" do
 			today = Today.new
-			expect(today.conditions).to be(:sunny)
+			expect(today.good_conditions).to be(:sunny)
 	end
 
 	it "should surprise everyone with unpredicted bad weather" do

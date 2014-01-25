@@ -13,10 +13,11 @@ class Airport < Plane
 	def open_runway_for(plane)
 		@plane_status = plane
 		@planes << plane
+		return "Runway Clear!"
 	end
 
 	def close_runway_for(plane)
-	  return "Runway Closed!" if Plane.landing || Plane.taking_off
+	  raise "Runway Closed!" if Plane.landing || Plane.taking_off
 	end
 
 	def has_planes?
