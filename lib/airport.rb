@@ -27,12 +27,10 @@ class Airport < Plane
 		@airport_status = :closed
 	end
 
-
 	def open_runway_for(plane)
 		@plane_status = plane
 		@planes << plane
 	end
-
 
 	def close_runway_for(plane)
 	 raise ("Runway Closed!") if Plane.landing || Plane.taking_off
