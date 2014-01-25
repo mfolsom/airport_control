@@ -1,22 +1,39 @@
 class Plane
-attr_accessor :state
-	def initialize(state = nil)
-		@state = state
+attr_accessor :status
+	def initialize(status = nil)
+		@status= status
 	end
 
 	def landing?
-		self.state = :landing
+		@status == :landing
+	end
+
+	def self.landing
+		self.new(:landing)
 	end
 
 	def flying?
-		self.state = :flying
+		@status == :flying
 	end
+
+	def self.flying
+		self.new(:flying)
+	end
+
 	def taking_off?
-		self.state = :taking_off
+		@status == :taking_off
+	end
+	def self.taking_off
+		self.new(:taking_off)
 	end
 
 	def landed?
-		self.state = :landed
+		@status == :landed
 	end
+
+	def self.landed
+		self.new(:landed)
+	end
+
 
 end
