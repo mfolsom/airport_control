@@ -8,7 +8,10 @@ describe MadScientist do
 		it "He'll start by making The weather stormy all the time" do
 			mad_scientist = MadScientist.new
 			expect(mad_scientist.random_conditions).to eq(:stormy)
+			expect(mad_scientist.good_conditions).to eq(:stormy)
 		end
+
+
 	
 	end
 	end

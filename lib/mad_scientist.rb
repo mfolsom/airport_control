@@ -6,4 +6,8 @@ class MadScientist
 		return RANDOM_WEATHER[4]
 		super
 	end
+	def good_conditions
+		return RANDOM_WEATHER[4]
+		super
+	end
 end
