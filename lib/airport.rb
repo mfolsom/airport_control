@@ -2,29 +2,12 @@ require 'plane'
 
 class Airport < Plane
 
-	attr_accessor :airport_status, :plane_status
+	attr_accessor :plane_status, :weather_conditions
 
-	def initialize(airport_status, plane_status)
-		@airport_status = :airport_status
+	def initialize(plane_status, weather_conditions)
 		@plane_status = :plane_status
+		@weather_conditions = weather_conditions
 		@planes = []
-	end
-	
-
-	def open?
-		open
-	end
-
-	def closed?
-		closed
-	end
-
-	def open
-		@airport_status = :open
-	end
-
-	def closed
-		@airport_status = :closed
 	end
 
 	def open_runway_for(plane)
@@ -39,4 +22,5 @@ class Airport < Plane
 	def has_planes?
 		@planes.any?
 	end
+
 end

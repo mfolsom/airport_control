@@ -12,9 +12,10 @@ class AirTrafficControl
 	def no_clearance_for(plane)
 		@airport.close_runway_for(plane)
 	end
-	
+
 	def weather_report(conditions)
 		@weather_conditions = conditions
 		@airport.weather_conditions
 	end
+	
 end
