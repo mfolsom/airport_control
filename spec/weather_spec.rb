@@ -8,9 +8,9 @@ describe Weather do
 			expect(today.conditions).to be(:sunny)
 	end
 
-	it "should surprise everyone with unpredictable bad weather" do
+	it "should surprise everyone with unpredicted bad weather" do
 		today = Today.new
-		expect(today.unpredictable_conditions).to be(:stormy)
+		expect(today.unpredicted_conditions).to be(:stormy)
 	end
 
 	it "should randomly return conditions" do
