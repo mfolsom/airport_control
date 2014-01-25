@@ -19,14 +19,14 @@ describe Airport do
 				weather = :sunny
 				plane = Plane.landing
 				airport = Airport.new(Plane.landing, weather)
-				expect { airport.close_runway_for(plane) }.to raise_error("Runway Closed!")
+				expect(airport.close_runway_for(plane)).to eq("Runway Closed!")
 		end
 
 		it 'planes cannot take off when the runway is closed' do
 				weather = :sunny
 				plane = Plane.taking_off
 				airport = Airport.new(Plane.taking_off, weather)
-				expect { airport.close_runway_for(plane) }.to raise_error("Runway Closed!")
+				expect(airport.close_runway_for(plane)).to eq("Runway Closed!")
 		end
 
 		it "has weather conditions" do

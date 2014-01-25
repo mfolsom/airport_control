@@ -1,4 +1,4 @@
-require 'plane'
+require_relative "plane"
 
 class Airport < Plane
 
@@ -16,7 +16,7 @@ class Airport < Plane
 	end
 
 	def close_runway_for(plane)
-	 raise ("Runway Closed!") if Plane.landing || Plane.taking_off
+	  return "Runway Closed!" if Plane.landing || Plane.taking_off
 	end
 
 	def has_planes?
@@ -24,3 +24,4 @@ class Airport < Plane
 	end
 
 end
+ 
