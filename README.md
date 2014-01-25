@@ -1,1 +1,8 @@
-Software to control the flow of planes at an airport. The planes can land and take off provided that hte weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.
+A busy airport, unpredictable planes, a random weather generator and a mad scientist! What will happen? 
+
+to find out, fork this repo and do
+
+rspec
+
+at command prompt
+

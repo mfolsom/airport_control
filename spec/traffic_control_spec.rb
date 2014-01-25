@@ -30,7 +30,7 @@ describe AirTrafficControl do
 
 	it "stops planes from landing and close the airport during stormy weather" do
 		today = Today.new
-		weather = today.unpredicted_conditions
+		weather = today.bad_conditions
 		airport = Airport.new(Plane.landing, weather)
 		tower = AirTrafficControl.new(airport, weather, Plane.landing)
 		plane = Plane.landing
@@ -39,7 +39,7 @@ describe AirTrafficControl do
 	
 	it "should also stop planes from taking off during stormy weather" do
 		today = Today.new
-		weather = today.unpredicted_conditions
+		weather = today.bad_conditions
 		airport = Airport.new(Plane.taking_off, weather)
 		tower = AirTrafficControl.new(airport, weather, Plane.taking_off)
 		plane = Plane.taking_off

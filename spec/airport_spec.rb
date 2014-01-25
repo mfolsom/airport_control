@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Airport do
 
-		it 'airport has no planes' do
+		it 'airport has no planes if planes are flying' do
 				weather = :sunny
 				airport = Airport.new(Plane.flying, weather)
 				expect(airport).not_to have_planes

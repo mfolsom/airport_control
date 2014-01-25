@@ -10,7 +10,7 @@ describe Weather do
 
 	it "should surprise everyone with unpredicted bad weather" do
 		today = Today.new
-		expect(today.unpredicted_conditions).to be(:stormy)
+		expect(today.bad_conditions).to be(:stormy)
 	end
 
 	it "should randomly return conditions" do

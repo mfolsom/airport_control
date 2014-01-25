@@ -12,7 +12,7 @@ module Weather
 		@good_conditions = :sunny
 	end
 
-	def unpredicted_conditions
+	def bad_conditions
 		@bad_conditions = :stormy
 	end
 
