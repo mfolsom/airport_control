@@ -54,6 +54,17 @@ describe AirTrafficControl do
 		tower = AirTrafficControl.new(airport, weather, plane )
 		expect(tower.open_runway_in_good_weather(plane)).to eq("Runway Clear!")
 	end
+context "*************WOOHAHAHAH!!*************" do
+	it "when the mad scientist takes over the weather the tower can only try to keep the planes safe by closing the runways" do
+		today = Today.new
+		mad_scientist = MadScientist.new
+		weather = mad_scientist.random_conditions
+		plane = Plane.landing
+		airport = Airport.new(plane, weather)
+		tower = AirTrafficControl.new(airport, weather, plane)
+		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
+	end
+end
 
 end
 
