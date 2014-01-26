@@ -5,9 +5,9 @@ class Airport < Plane
 	attr_accessor :plane_status, :weather_conditions
 
 	def initialize(plane_status, weather_conditions)
-		@plane_status = :plane_status
+		@plane_status 			= :plane_status
 		@weather_conditions = weather_conditions
-		@planes = []
+		@planes 						= []
 	end
 
 	def open_runway_for(plane)

@@ -4,13 +4,13 @@ require_relative "plane"
 
 class AirTrafficControl < Airport
 	include Weather
-	
+
 	attr_accessor :airport, :weather_conditions, :plane_status
 
-	def initialize(airport, weather_conditions, plane_status)
-		@airport = airport
-		@weather_conditions = weather_conditions
-		@plane_status = plane_status
+	def initialize(args)
+		@airport 						= args[:airport]
+		@weather_conditions = args[:weather_conditions]
+		@plane_status 			= args[:plane_status]
 	end
 
 	def landing_clearance_for(plane)
