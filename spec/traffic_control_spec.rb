@@ -7,7 +7,7 @@ describe AirTrafficControl do
 	it "can tell the airport to open the runway" do
 		airport = double :airport
 		weather = double :weather
-		tower 	= AirTrafficControl.new(
+		tower   = AirTrafficControl.new(
 						:airport            => airport, 
 						:weather_conditions => weather, 
 						:plane              => Plane.landing)
@@ -19,7 +19,7 @@ describe AirTrafficControl do
 	it "can tell the airport to close the runway" do
 		airport = double :airport
 		weather = double :weather
-		tower 	= AirTrafficControl.new(
+		tower   = AirTrafficControl.new(
 						:airport            => airport,
 						:weather_conditions => weather, 
 						:plane              => Plane.landing)
@@ -31,7 +31,7 @@ describe AirTrafficControl do
 	it "can check the weather report" do
 		airport = double :airport
 		weather = double :weather
-		tower 	= AirTrafficControl.new(
+		tower   = AirTrafficControl.new(
 						:airport            => airport, 
 						:weather_conditions => weather, 
 						:plane              => Plane.flying)
@@ -41,11 +41,11 @@ describe AirTrafficControl do
 	end
 
 	it "stops planes from landing and close the airport during stormy weather" do
-		today 	= Today.new
+		today   = Today.new
 		weather = today.bad_conditions
 		airport = Airport.new(Plane.landing, weather)
-		plane 	= Plane.landing
-		tower 	= AirTrafficControl.new(
+		plane   = Plane.landing
+		tower   = AirTrafficControl.new(
 						:airport            => airport, 
 						:weather_conditions	=> weather, 
 						:plane              => plane)
@@ -54,11 +54,11 @@ describe AirTrafficControl do
 	end
 	
 	it "should also stop planes from taking off during stormy weather" do
-		today 	= Today.new
+		today   = Today.new
 		weather = today.bad_conditions
 		airport = Airport.new(Plane.taking_off, weather)
-		plane 	= Plane.taking_off
-		tower 	= AirTrafficControl.new(
+		plane   = Plane.taking_off
+		tower   = AirTrafficControl.new(
 						:airport             => airport,
 						:weather_conditions  => weather,
 						:plane               => plane)
