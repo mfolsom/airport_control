@@ -69,7 +69,7 @@ describe AirTrafficControl do
 	it "clears the runway for landing in good weather" do
 		today   = Today.new
 		plane   = Plane.landing
-		weather =today.good_conditions
+		weather = today.good_conditions
 		airport = Airport.new(plane, weather)
 		tower   = AirTrafficControl.new(
 						:airport 						=> airport, 
