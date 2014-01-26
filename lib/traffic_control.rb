@@ -8,9 +8,9 @@ class AirTrafficControl < Airport
 	attr_accessor :airport, :weather_conditions, :plane_status
 
 	def initialize(args)
-		@airport 						= args[:airport]
+		@airport            = args[:airport]
 		@weather_conditions = args[:weather_conditions]
-		@plane_status 			= args[:plane_status]
+		@plane_status       = args[:plane_status]
 	end
 
 	def landing_clearance_for(plane)

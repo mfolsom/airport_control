@@ -8,9 +8,9 @@ describe AirTrafficControl do
 		airport = double :airport
 		weather = double :weather
 		tower 	= AirTrafficControl.new(
-						:airport 						=> airport, 
+						:airport            => airport, 
 						:weather_conditions => weather, 
-						:plane   						=> Plane.landing)
+						:plane              => Plane.landing)
 
 		expect(airport).to receive(:open_runway_for).with(:plane)
 		tower.landing_clearance_for(:plane)
@@ -20,9 +20,9 @@ describe AirTrafficControl do
 		airport = double :airport
 		weather = double :weather
 		tower 	= AirTrafficControl.new(
-						:airport 						=> airport,
+						:airport            => airport,
 						:weather_conditions => weather, 
-						:plane 	 						=> Plane.landing)
+						:plane              => Plane.landing)
 
 		expect(airport).to receive(:close_runway_for).with(:plane)
 		tower.no_clearance_for(:plane)
@@ -32,9 +32,9 @@ describe AirTrafficControl do
 		airport = double :airport
 		weather = double :weather
 		tower 	= AirTrafficControl.new(
-						:airport 						=> airport, 
+						:airport            => airport, 
 						:weather_conditions => weather, 
-						:plane   						=> Plane.flying)
+						:plane              => Plane.flying)
 
 		expect(airport).to receive(:weather_conditions)
 		tower.weather_report(weather)
@@ -46,9 +46,9 @@ describe AirTrafficControl do
 		airport = Airport.new(Plane.landing, weather)
 		plane 	= Plane.landing
 		tower 	= AirTrafficControl.new(
-						:airport  					=> airport, 
+						:airport            => airport, 
 						:weather_conditions	=> weather, 
-						:plane 							=> plane)
+						:plane              => plane)
 
 		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
 	end
@@ -59,9 +59,9 @@ describe AirTrafficControl do
 		airport = Airport.new(Plane.taking_off, weather)
 		plane 	= Plane.taking_off
 		tower 	= AirTrafficControl.new(
-						:airport 						 => airport,
+						:airport             => airport,
 						:weather_conditions  => weather,
-						:plane 	 						 => plane)
+						:plane               => plane)
 
 		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
 	end
@@ -72,9 +72,9 @@ describe AirTrafficControl do
 		weather = today.good_conditions
 		airport = Airport.new(plane, weather)
 		tower   = AirTrafficControl.new(
-						:airport 						=> airport, 
+						:airport            => airport, 
 						:weather_conditions => weather, 
-						:plane   						=> plane)
+						:plane              => plane)
 
 		expect(tower.open_runway_in_good_weather(plane)).to eq("Runway Clear!")
 	end
@@ -88,9 +88,9 @@ describe AirTrafficControl do
 			plane         = Plane.landing
 			airport       = Airport.new(plane, weather)
 			tower         = AirTrafficControl.new(
-				            :airport 						=> airport, 
+				            :airport            => airport, 
 				            :weather_conditions => weather, 
-				            :plane   						=> plane)
+				            :plane              => plane)
 
 			expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
 		end
