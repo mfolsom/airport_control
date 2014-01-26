@@ -47,7 +47,7 @@ describe AirTrafficControl do
 		plane   = Plane.landing
 		tower   = AirTrafficControl.new(
 						:airport            => airport, 
-						:weather_conditions	=> weather, 
+						:weather_conditions => weather, 
 						:plane              => plane)
 
 		expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
