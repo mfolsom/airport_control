@@ -5,12 +5,12 @@ class MadScientist
 
 	def random_conditions
 		return RANDOM_WEATHER[4]
-		super
+		super # this code will never be called because of the return
 	end
 
 	def good_conditions
 		return RANDOM_WEATHER[4]
-		super
+		super # this code will never be called because of the return
 	end
 
 end
