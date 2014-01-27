@@ -6,7 +6,7 @@ describe AirTrafficControl do
 
 	it "can tell the airport to open the runway" do
 		airport = double :airport
-		weather = double :weather
+		weather = double :weather # why have a double if it's not used at all? You could have passed nil instead
 		tower   = AirTrafficControl.new(
 						:airport            => airport, 
 						:weather_conditions => weather, 
@@ -56,6 +56,9 @@ describe AirTrafficControl do
 	it "should also stop planes from taking off during stormy weather" do
 		today   = Today.new
 		weather = today.bad_conditions
+		# instead of the previous line you could have done
+		# double :weather, :conditions => :bad
+		# then you class would call weather.conditions and get the correct reading
 		airport = Airport.new(Plane.taking_off, weather)
 		plane   = Plane.taking_off
 		tower   = AirTrafficControl.new(
@@ -83,7 +86,7 @@ describe AirTrafficControl do
 
 		it "when the mad scientist takes over the weather the tower closes the runway and planes can't land" do
 			today         = Today.new
-			mad_scientist = MadScientist.new
+			mad_scientist = MadScientist.new # you don't need a mad scientist, you need weather double that returns what you need :)
 			weather       = mad_scientist.random_conditions
 			plane         = Plane.landing
 			airport       = Airport.new(plane, weather)
@@ -91,7 +94,9 @@ describe AirTrafficControl do
 				            :airport            => airport, 
 				            :weather_conditions => weather, 
 				            :plane              => plane)
-
+			# why would you expect an error here? It's a perfectly normal situation:
+			# weather is bad, runway is closed, happens all the time.
+			# Exceptions should be used if something that shouldn't have happened takes place
 			expect{tower.close_runway_in_bad_weather(plane)}.to raise_error("Runway Closed!")
 		end
 
